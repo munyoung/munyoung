@@ -14,43 +14,50 @@ import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-
 public class StarGUI {
 	
 	JList<String> jlist;
+	JFrame frame;
+	JPanel panel_All;
+	JPanel panel_Center, panel_Bottom;
+	JPanel panel_C_Left, panel_C_Right;
+	JPanel panel_C_Left_Top, panel_C_Left_Bottom;
+	JLabel label1, label2;
+	JTextField textFiled1, textFiled2;
+	JButton button_insert, button_update, button_delete;
 	
-	public void startGUI(){
+	public StarGUI(){
 		
-		JFrame frame = new JFrame();
+		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JPanel panel_All = new JPanel();
+		panel_All = new JPanel();
 		panel_All.setLayout(new BorderLayout());
 //---------------------------------------------------------	
-		JPanel panel_Center = new JPanel();
+		panel_Center = new JPanel();
 		panel_Center.setLayout(new BorderLayout());
 		
-		JPanel panel_C_Left = new JPanel();
+		panel_C_Left = new JPanel();
 		panel_C_Left.setLayout(new FlowLayout(FlowLayout.LEFT,20,40));
 		
-		JLabel label1 = new JLabel("상품명　");
-		JTextField textFiled1 = new JTextField(10);
+		label1 = new JLabel("상품명　");
+		textFiled1 = new JTextField(10);
 
-		JLabel label2 = new JLabel("상품가격");
-		JTextField textFiled2 = new JTextField(10);
+		label2 = new JLabel("상품가격");
+		textFiled2 = new JTextField(10);
 		
-		JPanel panel_C_Left_Top = new JPanel();
+		panel_C_Left_Top = new JPanel();
 		panel_C_Left_Top.add(label1);
 		panel_C_Left_Top.add(textFiled1);
 		
-		JPanel panel_C_Left_Bottom = new JPanel();
+		panel_C_Left_Bottom = new JPanel();
 		panel_C_Left_Bottom.add(label2);
 		panel_C_Left_Bottom.add(textFiled2);
 
 		panel_C_Left.add(panel_C_Left_Top);
 		panel_C_Left.add(panel_C_Left_Bottom);
-		
-		JPanel panel_C_Right = new JPanel();
+
+		panel_C_Right = new JPanel();
 		panel_C_Right.setBackground(Color.BLUE);
 		panel_C_Right.setLayout(new BorderLayout());
 		
@@ -63,6 +70,7 @@ public class StarGUI {
 			public void valueChanged(ListSelectionEvent e) {
 				if(!e.getValueIsAdjusting()){
 					System.out.println(jlist.getSelectedIndex() + " : " + jlist.getSelectedValue());
+					textFiled1.setText(jlist.getSelectedValue());
 				}
 			}
 		});
@@ -77,14 +85,13 @@ public class StarGUI {
 		panel_Center.setPreferredSize(new Dimension(500, 200));
 //---------------------------------------------------------	
 		
-		JPanel panel_Bottom = new JPanel();
+		panel_Bottom = new JPanel();
 		panel_Bottom.setBackground(Color.DARK_GRAY);
 		panel_Bottom.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		
-		
-		JButton button_insert = new JButton("등록");
-		JButton button_update = new JButton("수정");
-		JButton button_delete = new JButton("삭제");
+		button_insert = new JButton("등록");
+		button_update = new JButton("수정");
+		button_delete = new JButton("삭제");
 		
 		panel_Bottom.add(button_insert);
 		panel_Bottom.add(button_update);
