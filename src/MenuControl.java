@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class MenuControl {
 
@@ -12,20 +11,17 @@ public class MenuControl {
 
 		int index = searchIndex(CoffeeList);
 		CoffeeList[index] = coffee;
+		
+		System.out.println(CoffeeList[index]);
 
 		return true;
 
 	}
 	
-	public boolean deleteCoffee(Coffee[] CoffeeList) {
+	public boolean deleteCoffee(Coffee[] CoffeeList, int index) {
 		
 		showCoffeeInform(CoffeeList);
-		System.out.println("削除するメニューの番号を入力してください。");
-		
-		Scanner sc = new Scanner(System.in);
-		int index = sc.nextInt();
-		sc.close();
-		
+	
 		CoffeeList[index] = null;
 		
 		return true;

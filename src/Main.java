@@ -20,9 +20,6 @@ public class Main {
 		
 		MenuControl menuControl = new MenuControl();
 		menuControl.insertCoffee(CoffeeList, name, price);
-		
-		System.out.println(CoffeeList[0]);
-
 
 	}
 
